@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-7">
+    <div class="card shadow-sm">
+      <div class="card-body p-4">
+        <h1 class="h3 mb-3">Проверка номера телефона</h1>
+        <form method="post" novalidate>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Номер телефона</label>
+            <input
+              type="text"
+              class="form-control {% if error %}is-invalid{% endif %}"
+              id="phone"
+              name="phone"
+              placeholder="Например: +7 (123) 456-75-90"
+              value="{{ phone_value }}"
+            >
+            {% if error %}
+              <div class="invalid-feedback">{{ error }}</div>
+            {% endif %}
+          </div>
+          <button type="submit" class="btn btn-primary">Проверить</button>
+        </form>
+
+        {% if normalized %}
+        <div class="alert alert-success mt-4 mb-0">
+          <strong>Номер в формате 8-***-***-**-**:</strong> {{ normalized }}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

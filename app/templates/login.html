@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-7">
+    <div class="card shadow-sm">
+      <div class="card-body p-4">
+        <h1 class="h3 mb-3">Форма авторизации</h1>
+        <form method="post" class="mb-4">
+          <div class="mb-3">
+            <label for="login" class="form-label">Логин</label>
+            <input type="text" class="form-control" id="login" name="login" placeholder="Введите логин" value="{{ form_data.login if submitted else '' }}">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Пароль</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Введите пароль" value="{{ form_data.password if submitted else '' }}">
+          </div>
+          <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+
+        {% if submitted %}
+        <div class="alert alert-info mb-0">
+          <h2 class="h5">Параметры формы</h2>
+          <p class="mb-1"><strong>Логин:</strong> {{ form_data.login }}</p>
+          <p class="mb-0"><strong>Пароль:</strong> {{ form_data.password }}</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

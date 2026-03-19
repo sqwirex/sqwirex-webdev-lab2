@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="p-4 p-md-5 mb-4 bg-white rounded-3 shadow-sm border">
+  <h1 class="display-6 fw-bold mb-3">Лабораторная работа №2. Работа с данными запроса</h1>
+  <p class="lead mb-4">В приложении реализованы страницы для отображения параметров URL, заголовков запроса, cookie и параметров формы, а также форма проверки номера телефона с обработкой ошибок.</p>
+  <div class="d-flex flex-wrap gap-2">
+    <a class="btn btn-primary" href="{{ url_for('show_url_params', search='flask', page='1') }}">Открыть параметры URL</a>
+    <a class="btn btn-outline-primary" href="{{ url_for('show_headers') }}">Открыть заголовки</a>
+    <a class="btn btn-outline-primary" href="{{ url_for('show_cookies') }}">Открыть cookie</a>
+    <a class="btn btn-outline-primary" href="{{ url_for('login') }}">Открыть форму авторизации</a>
+    <a class="btn btn-outline-primary" href="{{ url_for('phone') }}">Открыть проверку телефона</a>
+  </div>
+</div>
+{% endblock %}
